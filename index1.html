@@ -1,0 +1,78 @@
+<html>
+<head><title>shanmgaraj</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+body{
+    display:flex;
+	align-items:center;
+	justify-content:center;
+	height:100vh;
+	}
+	.container{
+	  width:18%;
+	  display:flex;
+	  align-items:center;
+	  position:relative;
+	  justify-content:center;
+	  }
+	
+	 
+i{
+ position: absolute;
+    <!-- top: 52%; -->
+    <!-- left: 50%; -->
+    color: red;
+    font-size: 36px;
+	opacity:0;
+	<!-- transform:translate(-50%,-50%) -->
+}
+.active{
+   opacity:1;
+   color:red;
+  animation:animate 2s linear infinite;
+}
+@keyframes animate{
+  25%{
+   
+    font-size:50px
+}
+60%{
+
+   font-size:40px;
+    transform:rotate(360deg);
+}
+100%{ 
+ 
+  font-size:50px;
+}
+}  
+
+</style>
+</head>
+<body>
+   <div class="container" id="container">
+    <div class="imag">
+	<img src="image/image.jpeg" id="image">
+    </div>	
+	<i class="fa solid fa-heart" id="icon" ></i>
+  </div>	
+<script>
+  var container=document.getElementById("container")
+  var image=document.getElementById("image")
+  var icon=document.querySelector("#icon")
+  image.addEventListener("dblclick",(event)=>{
+      let xvalue=event.clientX-event.target.offsetLeft
+	  let yvalue=event.clientY-event.target.offsetTop
+	  icon.style.left=`${xvalue}px`
+	  icon.style.top=`${yvalue}px`
+      icon.classList.add("active")
+	  setTimeout(()=>{
+	   icon.classList.remove("active")
+	   },2000)
+	  })
+
+</script>
+</body>
+</html>
